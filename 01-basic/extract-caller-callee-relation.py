@@ -192,7 +192,8 @@ if __name__ == "__main__":
         logData(0);
     }
     """
-
+ 
+ 
     functions = extract_functions(c_code)
     edges, calls, called_by = extract_call_graph(
         functions,
