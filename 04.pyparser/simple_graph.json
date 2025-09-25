@@ -1,0 +1,11 @@
+{
+  "nodes": [
+    { "id": "Alice", "country": "USA" },
+    { "id": "Bob", "country": "Canada" },
+    { "id": "Charlie", "country": "USA" }
+  ],
+  "links": [
+    { "source": "Alice", "target": "Bob", "weight": 5 },
+    { "source": "Alice", "target": "Charlie", "weight": 8 }
+  ]
+}

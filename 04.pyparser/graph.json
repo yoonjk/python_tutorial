@@ -1,0 +1,49 @@
+{
+  "nodes": [
+    {
+      "id": "ORD_001",
+      "type": "Screen",
+      "name": "주문조회"
+    },
+    {
+      "id": "ORD_001_BTN1",
+      "type": "Component",
+      "name": "조회 버튼"
+    },
+    {
+      "id": "OrderService#searchOrders",
+      "type": "Service"
+    },
+    {
+      "id": "/api/orders",
+      "type": "Endpoint",
+      "method": "GET"
+    },
+    {
+      "id": "ORD_T",
+      "type": "Table"
+    }
+  ],
+  "edges": [
+    {
+      "from": "ORD_001",
+      "to": "ORD_001_BTN1",
+      "type": "CONTAINS"
+    },
+    {
+      "from": "ORD_001_BTN1",
+      "to": "/api/orders",
+      "type": "TRIGGERS"
+    },
+    {
+      "from": "/api/orders",
+      "to": "OrderService#searchOrders",
+      "type": "CALLS"
+    },
+    {
+      "from": "OrderService#searchOrders",
+      "to": "ORD_T",
+      "type": "READS"
+    }
+  ]
+}
