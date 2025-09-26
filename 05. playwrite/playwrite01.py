@@ -1,0 +1,20 @@
+from playwright.sync_api import sync_playwright
+
+with sync_playwright() as p:
+browser = p.chromium.launch(headless=False)
+page = browser.new_page()
+page.goto("https://bstackdemo.com/")
+page.click("div[id='1'] div[class='shelf-item__buy-btn']")
+page.click(".buy-btn")
+page.type("#react-select-2-input", "demouser\n")
+page.type("#react-select-3-input", "testingisfun99\n")
+page.click("#login-btn")
+page.type("#firstNameInput","John")
+page.type("#lastNameInput","Doe")
+page.type("#addressLine1Input","123 Main St")
+page.type("#provinceInput","Anytown")
+page.type("#postCodeInput","12345")
+page.click("#checkout-shipping-continue")
+page.wait_for_selector("#confirmation-message")
+assert page.is_visible("#confirmation-message")
+browser.close()
